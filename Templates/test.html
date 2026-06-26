@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NeoArchitect | Frontend Developer Student Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+        }
+        .glow-cyan:hover {
+            box-shadow: 0 0 20px rgba(76, 215, 246, 0.3);
+        }
+        .glow-purple:hover {
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#4cd7f6",
+                    "outline-variant": "#4d4354",
+                    "inverse-surface": "#dae2fd",
+                    "on-tertiary-fixed": "#3d0026",
+                    "on-secondary-fixed-variant": "#004e5c",
+                    "on-secondary-fixed": "#001f26",
+                    "primary-fixed-dim": "#ddb7ff",
+                    "primary-container": "#b76dff",
+                    "surface-container": "#171f33",
+                    "on-background": "#dae2fd",
+                    "inverse-primary": "#842bd2",
+                    "on-secondary": "#003640",
+                    "on-error": "#690005",
+                    "secondary-container": "#03b5d3",
+                    "on-primary-fixed": "#2c0051",
+                    "surface-bright": "#31394d",
+                    "primary-fixed": "#f0dbff",
+                    "outline": "#988d9f",
+                    "on-tertiary-container": "#560038",
+                    "surface-container-high": "#222a3d",
+                    "error": "#ffb4ab",
+                    "surface-tint": "#ddb7ff",
+                    "secondary-fixed-dim": "#4cd7f6",
+                    "secondary-fixed": "#acedff",
+                    "tertiary-container": "#e364a7",
+                    "surface-variant": "#2d3449",
+                    "on-primary": "#490080",
+                    "on-surface": "#dae2fd",
+                    "tertiary-fixed-dim": "#ffafd3",
+                    "on-primary-container": "#400071",
+                    "on-primary-fixed-variant": "#6900b3",
+                    "on-secondary-container": "#00424e",
+                    "background": "#0b1326",
+                    "surface-container-highest": "#2d3449",
+                    "surface-container-low": "#131b2e",
+                    "on-surface-variant": "#cfc2d6",
+                    "surface-dim": "#0b1326",
+                    "surface-container-lowest": "#060e20",
+                    "tertiary": "#ffafd3",
+                    "on-tertiary-fixed-variant": "#85145a",
+                    "on-error-container": "#ffdad6",
+                    "surface": "#0b1326",
+                    "primary": "#ddb7ff",
+                    "inverse-on-surface": "#283044",
+                    "tertiary-fixed": "#ffd8e7",
+                    "on-tertiary": "#620040",
+                    "error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "16px",
+                    "section-gap": "120px",
+                    "stack-lg": "32px",
+                    "margin-mobile": "20px",
+                    "stack-sm": "8px",
+                    "gutter": "24px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-xl": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "label-sm": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- Fixed Background Shader -->
+<!-- STITCH_SHADER_START:ANIMATION_2 class="fixed inset-0 w-full h-full -z-10 opacity-40" -->
+<div class="fixed inset-0 w-full h-full -z-10 opacity-40" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_2" style="display:block;width:100%;height:100%"></canvas>
+    <script>
+    (function() {
+    const canvas = document.getElementById('shader-canvas-ANIMATION_2');
+
+    // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+    // This fires on initial layout and whenever the element is resized.
+    function syncSize() {
+        const w = canvas.clientWidth  || 1280;
+        const h = canvas.clientHeight || 720;
+        if (canvas.width !== w || canvas.height !== h) {
+        canvas.width  = w;
+        canvas.height = h;
+        }
+    }
+    if (typeof ResizeObserver !== 'undefined') {
+        new ResizeObserver(syncSize).observe(canvas);
+    }
+    syncSize();
+
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    if (!gl) return;
+    const vs = `attribute vec2 a_position;
+    varying vec2 v_texCoord;
+    void main() {
+    v_texCoord = a_position * 0.5 + 0.5;
+    gl_Position = vec4(a_position, 0.0, 1.0);
+    }`;
+    const fs = `precision highp float;
+    uniform float u_time;
+    uniform vec2 u_resolution;
+    uniform vec2 u_mouse;
+    varying vec2 v_texCoord;
+
+    void main() {
+        vec2 uv = v_texCoord;
+        vec2 mouse = u_mouse / u_resolution;
+        
+        // Create organic movement using time and coordinates
+        float noise1 = sin(uv.x * 3.0 + u_time * 0.5) * cos(uv.y * 2.0 - u_time * 0.3);
+        float noise2 = cos(uv.y * 4.0 + u_time * 0.4) * sin(uv.x * 2.5 + u_time * 0.6);
+        
+        // Interactive element based on mouse position
+        float dist = distance(uv, mouse);
+        float mouseInfluence = smoothstep(0.4, 0.0, dist) * 0.3;
+        
+        // Color stops inspired by purple and cyan theme
+        vec3 color1 = vec3(0.043, 0.075, 0.149); // Deep dark blue/black
+        vec3 color2 = vec3(0.659, 0.333, 0.969); // Vibrant Purple (#a855f7)
+        vec3 color3 = vec3(0.035, 0.827, 0.875); // Vibrant Cyan (#09d3df)
+        
+        // Mix colors based on noise and mouse
+        vec3 finalColor = mix(color1, color2, noise1 * 0.5 + 0.5);
+        finalColor = mix(finalColor, color3, noise2 * 0.5 + 0.5 + mouseInfluence);
+        
+        // Vignette effect
+        float vignette = smoothstep(1.5, 0.5, length(uv - 0.5) * 2.0);
+        finalColor *= vignette;
+        
+        gl_FragColor = vec4(finalColor * 0.6, 1.0); // Slightly dimmed for readability
+    }`;
+    function cs(type, src) {
+        const s = gl.createShader(type);
+        gl.shaderSource(s, src);
+        gl.compileShader(s);
+        return s;
+    }
+    const prog = gl.createProgram();
+    gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+    gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+    gl.linkProgram(prog);
+    gl.useProgram(prog);
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+    const pos = gl.getAttribLocation(prog, 'a_position');
+    gl.enableVertexAttribArray(pos);
+    gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+    const uTime = gl.getUniformLocation(prog, 'u_time');
+    const uRes = gl.getUniformLocation(prog, 'u_resolution');
+    const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+    // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+    // Shaders that need normalized coords should use: u_mouse / u_resolution.
+    let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+    window.addEventListener('mousemove', (event) => {
+        const rect = canvas.getBoundingClientRect();
+        if (rect.width && rect.height) {
+        const nx = (event.clientX - rect.left) / rect.width;
+        const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+        mouse.x = nx * canvas.width;
+        mouse.y = ny * canvas.height;
+        }
+    });
+
+    function render(t) {
+        if (typeof ResizeObserver === 'undefined') syncSize();
+        gl.viewport(0, 0, canvas.width, canvas.height);
+        if (uTime) gl.uniform1f(uTime, t * 0.001);
+        if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+        if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+        requestAnimationFrame(render);
+    }
+    render(0);
+    })();
+    </script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_2 -->
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/40 dark:bg-surface-container/40 backdrop-blur-xl border-b border-white/10 shadow-none transition-all duration-300 ease-in-out">
+<div class="max-w-container-max mx-auto px-gutter flex justify-between items-center h-20">
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tighter">NeoArchitect</span>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-body-md text-body-md text-secondary font-bold border-b-2 border-secondary pb-1" href="#hero">Hero</a>
+<a class="font-body-md text-body-md text-on-surface/70 hover:text-primary transition-colors" href="#about">About</a>
+<a class="font-body-md text-body-md text-on-surface/70 hover:text-primary transition-colors" href="#skills">Skills</a>
+<a class="font-body-md text-body-md text-on-surface/70 hover:text-primary transition-colors" href="#projects">Projects</a>
+<a class="font-body-md text-body-md text-on-surface/70 hover:text-primary transition-colors" href="#contact">Contact</a>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-sm hover:scale-105 transition-transform">Resume</button>
+</div>
+</div>
+</nav>
+<main class="relative z-10 pt-20">
+<!-- Hero Section -->
+<section class="min-h-[921px] flex items-center max-w-container-max mx-auto px-gutter py-section-gap" id="hero">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg items-center w-full">
+<div class="flex flex-col gap-stack-md order-2 md:order-1">
+<h1 class="font-headline-xl text-headline-xl text-white leading-none">
+                        Alex <br/><span class="text-primary">Rivera</span>
+</h1>
+<h2 class="font-headline-md text-headline-md text-secondary">Frontend Developer Student</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        Architecting modern digital experiences with a focus on technical precision and creative flair. Bridging the gap between design and high-performance code.
+                    </p>
+<div class="flex gap-4 mt-4">
+<button class="bg-primary-container text-on-primary-container px-8 py-3 rounded-lg font-label-sm shadow-[0_0_20px_rgba(183,109,255,0.4)] hover:brightness-110 transition-all">Download CV</button>
+<button class="border border-secondary text-secondary px-8 py-3 rounded-lg font-label-sm hover:bg-secondary/10 transition-all">Contact Me</button>
+</div>
+</div>
+<div class="flex justify-center md:justify-end order-1 md:order-2">
+<div class="relative w-64 h-64 md:w-96 md:h-96 rounded-full border-4 border-secondary p-2 glow-cyan transition-all duration-500">
+<div class="w-full h-full rounded-full overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A professional and artistic headshot of a young male frontend developer with short dark hair, wearing a stylish dark turtleneck. The lighting is dramatic and cinematic, with cyan and purple neon highlights reflecting off his skin. The background is a blurred digital workspace with soft bokeh lights, maintaining a high-end tech-focused aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_2PwMWsquACJq7y-STGEiBZrNw5LpIfxea7rG-36xNuZlL1VfcFzyAgzgh5h8vnaASZAgGN2KG1WVFNA8UWw3CFERcfyZex4vq7RTo_xQoEKd8dt_QmA3DDcw_H75bSfGRKdY5psS2zVDDM6BBpxANC7EdT51eCoXUa3wP8uGDxrhPyMascfo3OSUF64ScYJTjFr1dKSgl44GD7cmyRJ0gPbIVRMoJ-hV0Ejt4YolLKcq0jSsb9wZupF30iEjQAaKJYgPhSavn2E"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-section-gap max-w-container-max mx-auto px-gutter" id="about">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24 items-start">
+<div class="relative aspect-square glass-card rounded-2xl overflow-hidden group">
+<img class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="A high-tech digital illustration of a humanoid robotic hand delicately interacting with a floating holographic user interface made of glowing code and UI elements. The color palette consists of deep blues, cyans, and purples. The style is ultra-modern and minimalist, echoing the glassmorphism theme of the portfolio with soft blurs and sharp glowing edges." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPOET9smZcaQJWSnOWGfoadFR3WwsUzZCXUL61yhsfAFIaCSNRMsWbq_ghv5opVX7miSek_di8PxMwI7NCrx-dm1Ct3mRKWXbvSARhgCHp-CEgtg-ZDdNNzGj-7_l31vlxS-0UnU7ppzwqGKpk3NT7wSYXT-daPAurWU7CLijhZ_rXpmxYSxjQerEls6DNZI8E2TUP9yoGrCyjl8Uo0ieIiHaTsQY1u9tg501-NDRKnhcWwpBWhHXGwvpnDQAYuWcwsF2DPhkdBJw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+</div>
+<div class="flex flex-col gap-stack-lg">
+<div class="flex flex-col gap-stack-sm">
+<span class="text-secondary font-label-sm tracking-[0.2em] uppercase">The Neo-Architect</span>
+<h2 class="font-headline-lg text-headline-lg">Building the Future Web</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                            As a dedicated Frontend Development student, I immerse myself in the intricacies of modern web architectures. My passion lies in crafting seamless, accessible, and high-performance user interfaces that don't just look beautiful but function with technical excellence.
+                        </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="glass-card p-6 rounded-xl flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary text-3xl">school</span>
+<span class="font-label-sm text-outline">University</span>
+<span class="font-body-md font-bold text-white">Tech Institute</span>
+</div>
+<div class="glass-card p-6 rounded-xl flex flex-col gap-2">
+<span class="material-symbols-outlined text-secondary text-3xl">terminal</span>
+<span class="font-label-sm text-outline">Major</span>
+<span class="font-body-md font-bold text-white">Comp. Science</span>
+</div>
+<div class="glass-card p-6 rounded-xl flex flex-col gap-2">
+<span class="material-symbols-outlined text-tertiary text-3xl">calendar_today</span>
+<span class="font-label-sm text-outline">Year</span>
+<span class="font-body-md font-bold text-white">Junior '24</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Section -->
+<section class="py-section-gap max-w-container-max mx-auto px-gutter" id="skills">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg">Tech Stack</h2>
+<div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4 rounded-full"></div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+<!-- Skill Card 1 -->
+<div class="glass-card p-8 rounded-2xl flex flex-col items-center gap-4 group hover:scale-105 transition-all glow-purple">
+<div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">html</span>
+</div>
+<span class="font-label-sm font-bold tracking-wider">HTML5</span>
+</div>
+<!-- Skill Card 2 -->
+<div class="glass-card p-8 rounded-2xl flex flex-col items-center gap-4 group hover:scale-105 transition-all glow-cyan">
+<div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">css</span>
+</div>
+<span class="font-label-sm font-bold tracking-wider">CSS3</span>
+</div>
+<!-- Skill Card 3 -->
+<div class="glass-card p-8 rounded-2xl flex flex-col items-center gap-4 group hover:scale-105 transition-all glow-purple">
+<div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">javascript</span>
+</div>
+<span class="font-label-sm font-bold tracking-wider">JAVASCRIPT</span>
+</div>
+<!-- Skill Card 4 -->
+<div class="glass-card p-8 rounded-2xl flex flex-col items-center gap-4 group hover:scale-105 transition-all glow-cyan">
+<div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">palette</span>
+</div>
+<span class="font-label-sm font-bold tracking-wider">TAILWIND</span>
+</div>
+<!-- Skill Card 5 -->
+<div class="glass-card p-8 rounded-2xl flex flex-col items-center gap-4 group hover:scale-105 transition-all glow-purple">
+<div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">code</span>
+</div>
+<span class="font-label-sm font-bold tracking-wider">PYTHON</span>
+</div>
+<!-- Skill Card 6 -->
+<div class="glass-card p-8 rounded-2xl flex flex-col items-center gap-4 group hover:scale-105 transition-all glow-cyan">
+<div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">database</span>
+</div>
+<span class="font-label-sm font-bold tracking-wider">MYSQL</span>
+</div>
+</div>
+</section>
+<!-- Projects Section -->
+<section class="py-section-gap max-w-container-max mx-auto px-gutter" id="projects">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+<div class="flex flex-col gap-2">
+<span class="text-primary font-label-sm tracking-widest uppercase">Featured Works</span>
+<h2 class="font-headline-lg text-headline-lg">Latest Architectures</h2>
+</div>
+<button class="text-secondary font-label-sm border-b border-secondary pb-1 hover:border-transparent transition-all">View Archive</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Project Card 1 -->
+<div class="glass-card rounded-2xl overflow-hidden flex flex-col group h-full">
+<div class="relative h-48 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A screenshot of a sleek, dark-themed e-commerce web dashboard with vibrant cyan and violet data visualization charts. The UI features elegant glassmorphism panels, crisp white typography, and a minimalist sidebar. The lighting is soft and professional, emphasizing a modern tech-forward user experience design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_7W-X8H-juQlg143m3M-7vJMvQQHDO1CB01O9-VMaD3Odvlnvv_lzXufmy_p4E6w4CKhnycVTNyK61aiiIQoXxTO1GD7aVljZ5yDFdMNNtGiVSaFU5IQ5fBBQpHyZPM7kOSK-FJU66UCbNe7EAbM_5eAvYogjcMdYtnN8OolDOlv464uph4znDFO_wm0P6eWrb7lBu-kKj2cWoJ-UiaamUP3oKKBaBBm5AXy771q4pZYJJhKxD7BkDICylbxXRYbMUb_0gifLJaY"/>
+</div>
+<div class="p-8 flex flex-col gap-4 flex-grow">
+<h3 class="font-headline-md text-headline-md text-white">Nebula Dashboard</h3>
+<p class="font-body-md text-on-surface-variant flex-grow">A high-performance real-time data visualization tool built for enterprise-level server monitoring.</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-[12px] font-bold">React</span>
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-[12px] font-bold">Tailwind</span>
+<span class="bg-tertiary/10 text-tertiary px-3 py-1 rounded-full text-[12px] font-bold">Chart.js</span>
+</div>
+<div class="flex gap-4 pt-4 border-t border-white/5">
+<a class="flex items-center gap-2 text-secondary font-label-sm hover:brightness-125" href="#"><span class="material-symbols-outlined text-sm">open_in_new</span> Demo</a>
+<a class="flex items-center gap-2 text-outline hover:text-white font-label-sm" href="#"><span class="material-symbols-outlined text-sm">code</span> GitHub</a>
+</div>
+</div>
+</div>
+<!-- Project Card 2 -->
+<div class="glass-card rounded-2xl overflow-hidden flex flex-col group h-full">
+<div class="relative h-48 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A vibrant, stylized landing page for a creative agency, showcasing a heavy use of glassmorphism, floating 3D glass geometric shapes, and a bright, ethereal purple and cyan atmospheric background. The typography is bold and modern, with sophisticated layouts that emphasize a high-end digital presence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBzvAyXNqzyFeNq1JRmoabjXnkzVdGJF4ml_m-DqturEG0l3rct3yQSADcNMjkPw3oAhGe_NhIDLXLJRLygey0NsQyp22d51M3D3pou_N5EDbyPbikv08dJwte6auSz-IOlMq7PF864qTgndg8uJidWx-5okPRdKdx0aIyh8QqKXBUtMuopW-Iba3iibvACIZgGVf-v4O546oiqiI2JYAmEDO02CTQPewwcWoe2yTdiKhaaog_mme0Wce3GSFXZmtr6K4e0OC2M8g"/>
+</div>
+<div class="p-8 flex flex-col gap-4 flex-grow">
+<h3 class="font-headline-md text-headline-md text-white">Prism Landing</h3>
+<p class="font-body-md text-on-surface-variant flex-grow">Modern creative agency website featuring heavy glassmorphism effects and smooth Framer animations.</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-[12px] font-bold">Next.js</span>
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-[12px] font-bold">GSAP</span>
+<span class="bg-tertiary/10 text-tertiary px-3 py-1 rounded-full text-[12px] font-bold">WebGL</span>
+</div>
+<div class="flex gap-4 pt-4 border-t border-white/5">
+<a class="flex items-center gap-2 text-secondary font-label-sm hover:brightness-125" href="#"><span class="material-symbols-outlined text-sm">open_in_new</span> Demo</a>
+<a class="flex items-center gap-2 text-outline hover:text-white font-label-sm" href="#"><span class="material-symbols-outlined text-sm">code</span> GitHub</a>
+</div>
+</div>
+</div>
+<!-- Project Card 3 -->
+<div class="glass-card rounded-2xl overflow-hidden flex flex-col group h-full">
+<div class="relative h-48 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A clean and minimal mobile-first fitness tracking application interface. The screen shows a progress ring, daily activity stats, and a list of completed exercises. The color scheme is a deep indigo background with vibrant cyan accents. The design is meticulously clean with plenty of white space and crisp, legible iconography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjSCbNORAOcSTADyfu7guwz_lgrz0VfioBS1VTvOd2PQreJy0x2csvRwvnGbsnBGzX29ossAyghCeA8A-Tim4MlCzXCKSh1JGAZ8svT5bolArUgPK6ZeJWYSRsMWs8ST3lbDU-dnboLPp1BrOaCPbuhbJM8HDtfOvj5Cth3pVcqLC_iAEXsjpiJ4fpHdCLr7LXDIMTTLdSbpHsZ3FotMMNtb7JoTEwFJQWnV8jPd1wkQGpaba-uPwgcGJIkz_wKKH5wHa-Jmpu57Q"/>
+</div>
+<div class="p-8 flex flex-col gap-4 flex-grow">
+<h3 class="font-headline-md text-headline-md text-white">Vigor Tracker</h3>
+<p class="font-body-md text-on-surface-variant flex-grow">Mobile-first progressive web app for tracking personalized fitness goals and nutritional intake.</p>
+<div class="flex flex-wrap gap-2">
+<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-[12px] font-bold">Vue</span>
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-[12px] font-bold">Firebase</span>
+<span class="bg-tertiary/10 text-tertiary px-3 py-1 rounded-full text-[12px] font-bold">Vite</span>
+</div>
+<div class="flex gap-4 pt-4 border-t border-white/5">
+<a class="flex items-center gap-2 text-secondary font-label-sm hover:brightness-125" href="#"><span class="material-symbols-outlined text-sm">open_in_new</span> Demo</a>
+<a class="flex items-center gap-2 text-outline hover:text-white font-label-sm" href="#"><span class="material-symbols-outlined text-sm">code</span> GitHub</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-gap max-w-container-max mx-auto px-gutter flex justify-center" id="contact">
+<div class="w-full max-w-2xl glass-card p-stack-lg rounded-3xl">
+<div class="text-center mb-10">
+<h2 class="font-headline-lg text-headline-lg mb-2">Initialize Contact</h2>
+<p class="font-body-md text-on-surface-variant">Ready to collaborate on your next digital project? Let's talk.</p>
+</div>
+<form class="flex flex-col gap-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-outline px-1">Identity</label>
+<input class="bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-secondary transition-colors text-white" placeholder="Your Name" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-outline px-1">Link</label>
+<input class="bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-secondary transition-colors text-white" placeholder="email@address.com" type="email"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-outline px-1">Payload</label>
+<textarea class="bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-secondary transition-colors text-white resize-none" placeholder="Brief project description..." rows="4"></textarea>
+</div>
+<button class="bg-secondary text-on-secondary py-4 rounded-xl font-label-sm font-bold tracking-widest hover:brightness-110 transition-all flex items-center justify-center gap-2">
+                        TRANSMIT MESSAGE <span class="material-symbols-outlined">send</span>
+</button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest w-full py-stack-lg border-t border-white/5 relative z-10">
+<div class="flex flex-col items-center gap-stack-md w-full">
+<span class="font-headline-md text-headline-md text-primary font-bold">NeoArchitect</span>
+<div class="flex gap-8">
+<a class="text-outline hover:text-secondary transition-all hover:scale-110" href="#">
+<span class="material-symbols-outlined text-2xl">code</span>
+</a>
+<a class="text-outline hover:text-secondary transition-all hover:scale-110" href="#">
+<span class="material-symbols-outlined text-2xl">terminal</span>
+</a>
+<a class="text-outline hover:text-secondary transition-all hover:scale-110" href="#">
+<span class="material-symbols-outlined text-2xl">mail</span>
+</a>
+<a class="text-outline hover:text-secondary transition-all hover:scale-110" href="#">
+<span class="material-symbols-outlined text-2xl">share</span>
+</a>
+</div>
+<p class="font-label-sm text-label-sm text-outline/60 mt-4">© 2024 NeoArchitect. Built with precision.</p>
+</div>
+</footer>
+<script>
+        // Micro-interactions and scroll effects
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-4');
+                nav.classList.remove('h-20');
+                nav.classList.add('bg-surface-dim/80');
+            } else {
+                nav.classList.remove('py-4');
+                nav.classList.add('h-20');
+                nav.classList.remove('bg-surface-dim/80');
+            }
+        });
+
+        // Intersection Observer for fade-in effects
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+</body></html>

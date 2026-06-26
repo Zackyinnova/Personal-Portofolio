@@ -1,0 +1,85 @@
+
+
+
+body{
+
+    min-height:100vh;
+
+    font-family:"Inter",sans-serif;
+
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #08111F 0%,
+            #0C1830 40%,
+            #0E2D40 100%
+        );
+
+    position:relative;
+
+}
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+        radial-gradient(
+            circle at top left,
+            rgba(168,85,247,.18),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at bottom right,
+            rgba(34,211,238,.16),
+            transparent 40%
+        );
+
+    z-index:-2;
+
+}
+
+#cursor-glow{
+
+    position:fixed;
+
+    width:650px;
+    height:650px;
+
+    left:0;
+    top:0;
+
+    border-radius:9999px;
+
+    pointer-events:none;
+
+    transform:translate(-50%,-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(76,215,246,.18),
+            rgba(76,215,246,.08),
+            transparent 70%
+        );
+
+    filter:blur(45px);
+
+    z-index:-1;
+}
+
+/* isi website */
+main{
+    position:relative;
+    z-index:2;
+}
