@@ -19,15 +19,15 @@
     <!-- Glow Background -->
     <div id="cursor-glow"></div>
 
-    <header class="fixed z-50 backdrop-blur-xl w-full z-10 bg-[#171f33]/40 px-50 border-b border-white/10">
-        <nav class="flex justify-between px-24 py-10">
+    <header class="fixed  z-50 backdrop-blur-xl w-full z-10 bg-[#171f33]/40 md:px-50 border-b border-white/10 ">
+        <nav class="flex justify-between px-24 py-10  w-full">
             <div class="left-navbar">
                 <p class="text-[#DDB7FF] text-[24px] font-bold">
                     Personal Portfolio
                 </p>
             </div>
 
-            <div class="flex gap-15 text-[#DAE2FD]/70 text-[16px] font-bold ">
+            <div class="hidden gap-15 text-[#DAE2FD]/70 text-[16px] font-bold md:flex">
                 <a href="">
                     <p class="hover:text-[#DDB7FF]">Hero</p>
                 </a>
@@ -51,12 +51,12 @@
         </nav>
     </header>
 
-    <main class="px-50 relative z-20 pt-20">
+    <main class="md:px-50 md:flex md:flex-col z-20">
         <!--Hero Section-->
-        <section class="flex px-24 min-h-[921px] ">
-            <div class="w-full flex items-center">
+        <section class="flex px-24 min-h-[921px]  md:w-full">
+            <div class="w-full flex items-center ">
                 <!--Left Hero-->
-                <div class="w-full flex flex-col">
+                <div class="w-full flex flex-col ">
                     <h1 class="text-[50px] font-extrabold">Zacky 
                         <br><span class="text-[#DDB7FF]">Innova</span>
                     </h1>
@@ -78,7 +78,11 @@
                 <!--Right Hero-->
 
                 <div class="w-full flex justify-end ">
-                    <P>asd</P>
+                    <div class="relative w-64 h-64 md:w-96 md:h-96 rounded-full border-4 border-[#4cd7f6] p-2 glow-cyan transition-all duration-500">
+                        <div class="w-full h-full rounded-full overflow-hidden">
+                            <img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A professional and artistic headshot of a young male frontend developer with short dark hair, wearing a stylish dark turtleneck. The lighting is dramatic and cinematic, with cyan and purple neon highlights reflecting off his skin. The background is a blurred digital workspace with soft bokeh lights, maintaining a high-end tech-focused aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_2PwMWsquACJq7y-STGEiBZrNw5LpIfxea7rG-36xNuZlL1VfcFzyAgzgh5h8vnaASZAgGN2KG1WVFNA8UWw3CFERcfyZex4vq7RTo_xQoEKd8dt_QmA3DDcw_H75bSfGRKdY5psS2zVDDM6BBpxANC7EdT51eCoXUa3wP8uGDxrhPyMascfo3OSUF64ScYJTjFr1dKSgl44GD7cmyRJ0gPbIVRMoJ-hV0Ejt4YolLKcq0jSsb9wZupF30iEjQAaKJYgPhSavn2E"/>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -110,44 +114,23 @@
                     <div class="flex flex-row gap-8 mt-10">
                         <div class="p-6 border-1 flex flex-col gap-2 glass-card rounded-xl w-full">
                             <span class="basil--university-outline"></span>
-                            <span>University</span>
-                            <span>Esa Unggul Bekasi</span>  
+                            <span class="text-[#988D9F]">University</span>
+                            <span class="font-bold">Esa Unggul Bekasi</span>  
                         </div>
 
                         <div class="p-6 border-1 flex flex-col gap-2 glass-card rounded-xl w-full">
                             <span class="ic--outline-terminal"></span>
-                            <span>Major</span>
-                            <span>Comp. Science</span>
+                            <span class="text-[#988D9F]">Major</span>
+                            <span class="font-bold">Comp. Science</span>
                         </div>
 
-                        <div class="p-6 border-1 flex flex-col gap-2 glass-card rounded-xl w-full">
+                        <div class="p-6 border-1 flex flex-col gap-2 glass-card rounded-xl w-full ">
                             <span class="uil--calender"></span>
-                            <span>Year</span>
-                            <span>Junior '23</span>
+                            <span class="text-[#988D9F]">Year</span>
+                            <span class="font-bold">Junior '23</span>
                         </div>
                     </div>
 
-                </div>
-            </div>
-        </section>
-
-                <!--About Section-->
-
-        <section class="flex px-24 mt-100 ">
-            <div class="w-full flex items-center">
-                <!--Left Hero-->
-                <div class="w-full flex flex-col">
-
-                </div>
-
-                <!--Right Hero-->
-
-                <div class="w-full flex justify-start flex-col border-1">
-                    <span class="text-[20px] text-[#4cd7f6]">The Neo-Architect</span>
-
-                    <h2 class="text-[48px] font-bold text-[#DAE2FD]">Building the Future web</h2>
-
-                    <p class="text-[18px] text-[#CFC2D6]">As a dedicated Frontend Development student, I immerse myself in the intricacies of modern web architectures. My passion lies in crafting seamless, accessible, and high-performance user interfaces that don't just look beautiful but function with technical excellence.</p>
                 </div>
             </div>
         </section>
