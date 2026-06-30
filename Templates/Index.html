@@ -13,14 +13,15 @@
 
     <link rel="stylesheet" href="/static/style/style.css">
 
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 </head>
 <body class="relative overflow-x-hidden">
 
     <!-- Glow Background -->
     <div id="cursor-glow"></div>
 
-    <header class="fixed  z-50 backdrop-blur-xl w-full z-10 bg-[#171f33]/40 md:px-50 border-b border-white/10 ">
-        <nav class="flex justify-between px-6 md:px-24 py-6 md:py-10 w-full">
+    <header class="fixed  z-50 backdrop-blur-xl w-full z-10 bg-[#171f33]/40 md:px-50 border-b border-white/10 " data-aos="fade-down" >
+        <nav class="flex justify-between px-6 md:px-24 py-6 md:py-10 w-full ">
             <div class="left-navbar">
                 <p class="text-[#DDB7FF] text-[24px] font-bold">
                     Personal Portfolio
@@ -53,7 +54,7 @@
 
     <main class="md:px-50 md:flex md:flex-col z-20">
         <!--Hero Section-->
-        <section class="flex min-h-[921px] ">
+        <section  class="flex min-h-[921px]"  data-aos="fade-up">
             <div class=" w-full flex flex-col md:flex-row gap-4  justify-center md:items-center">
                 <!--Left Hero-->
                 <div class="w-full flex flex-col justify-end order-2 md:order-1 px-6 md:px-24 ">
@@ -98,7 +99,7 @@
         </section>
 
         <!--About Section-->
-        <section class="flex min-h-[921px]" id="about">
+        <section class="flex min-h-[921px] items-center" id="about" data-aos="fade-up">
             <div class="w-full flex items-center flex-col gap-24 md:flex-row">
                 <!--Left Hero-->
                 <div class="w-full flex flex-col px-6 md:px-24">
@@ -145,7 +146,7 @@
         </section>
 
         <!--Tech Section-->
-        <section class="flex py-20 min-h-[921px]" id="Tech">
+        <section class="flex py-20 min-h-[921px] items-center" id="Tech" data-aos="fade-up">
             <div class="w-full flex justify-center  flex-col px-6 gap-10 ">
                 <div class="flex justify-center">
                     <div class="w-fit">
@@ -228,7 +229,7 @@
         </section>
 
         <!--Project Section-->
-        <section class="flex py-20 min-h-[921px]" id="project">
+        <section class="flex py-20 min-h-[921px] items-center" id="project" data-aos="fade-up">
             <div class="w-full px-6 flex flex-col gap-4">
                 <div class="flex flex-col gap-2 mb-16">
                     <span class="text-base text-[#ddb7ff] uppercase">Featured Works</span>
@@ -300,7 +301,7 @@
         </section>
 
         <!--Contact Section-->
-        <section class="flex py-20 md:px-100 min-h-[921px] px-6 " id="Contact">
+        <section class="flex py-20 md:px-100 min-h-[921px] px-6  items-center" id="Contact" data-aos="fade-up">
             <div class="glass-card w-full rounded-3xl px-[32px] h-fit py-10">
 
                 <div class="flex  flex-col gap-4 text-center">
@@ -334,7 +335,44 @@
         </section>
     </main>
 
+        <!-- Footer -->
+    <footer class="bg-[#060e20] dark:bg-[#060e20] w-full py-10 border-t border-white/5 relative z-10">
+        <div class="flex flex-col items-center gap-[16px] w-full">
+            <span class="text-[24px] text-[#ddb7ff] font-bold">NeoArchitect</span>
+
+            <div class="flex gap-8">
+                <a class="hover:text-[#4cd7f6] transition-all hover:scale-110" href="#">
+                    <span class="material-symbols--code"></span>
+                </a>
+
+                <a class="hover:text-[#4cd7f6] transition-all hover:scale-110" href="#">
+                    <span class="material-symbols--terminal"></span>
+                </a>
+
+                <a class="hover:text-[#4cd7f6] transition-all hover:scale-110" href="#">
+                    <span class="material-symbols--mail"></span>
+                </a>
+
+                <a class="hover:text-[#4cd7f6] transition-all hover:scale-110" href="#">
+                    <span class="material-symbols--share"></span>
+                </a>
+            </div>
+            
+            <p class="font-semibold text-[#988D9F]/60 mt-4">© 2024 NeoArchitect. Built with precision.</p>
+        </div>
+    </footer>
+
     <script src="/static/js/script.js"></script>
 
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: "ease-out-cubic",
+            once: true,
+            offset: 100
+        });
+    </script>
 </body>
 </html>
